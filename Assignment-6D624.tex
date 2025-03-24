@@ -1,0 +1,1506 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Homework 6 D624},
+  pdfauthor={Jose Fuentes},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Homework 6 D624}
+\author{Jose Fuentes}
+\date{2025-03-22}
+
+\begin{document}
+\maketitle
+
+\subsection{Homework 6}\label{homework-6}
+
+Do the exercises 9.1, 9.2, 9.3, 9.5, 9.6, 9.7, 9.8 in Hyndman. Please
+submit both the Rpubs link as well as your .rmd file.
+
+\section{9.1)}\label{section}
+
+Figure 9.32 shows the ACFs for 36 random numbers, 360 random numbers and
+1,000 random numbers.
+
+\includegraphics[width=13.69in]{Fig932}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Explain the differences among these figures. Do they all indicate that
+  the data are white noise?
+\end{enumerate}
+
+The differences between ACF plots for random numbers with sample sizes
+of 36, 360, and 1,000 are The variability is greater in smaller samples,
+resulting in larger spikes in autocorrelation values and less stable
+estimates. As the sample size increases, the ACF values converge closer
+to zero, aligning with the characteristics of white noise. Despite these
+differences, all plots indicate white noise as there are no systematic
+patterns across the lags, and the values fall within the critical
+bounds.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Why are the critical values at different distances from the mean of
+  zero? Why are the autocorrelations different in each figure when they
+  each refer to white noise?
+\end{enumerate}
+
+The critical values are wider for smaller samples due to greater
+variability, while larger samples lead to narrower bounds and more
+precise results. Autocorrelation estimates vary because smaller samples
+produce less stable ACF values, while larger samples reduce randomness
+and align more closely with the expectations of white noise. In essence,
+the observed differences stem from the statistical properties of varying
+sample sizes.
+
+\section{9.2)}\label{section-1}
+
+A classic example of a non-stationary series are stock prices. Plot the
+daily closing prices for Amazon stock (contained in gafa\_stock), along
+with the ACF and PACF. Explain how each plot shows that the series is
+non-stationary and should be differenced.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(fpp3)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'fpp3' was built under R version 4.4.2
+\end{verbatim}
+
+\begin{verbatim}
+## Registered S3 method overwritten by 'tsibble':
+##   method               from 
+##   as_tibble.grouped_df dplyr
+\end{verbatim}
+
+\begin{verbatim}
+## -- Attaching packages -------------------------------------------- fpp3 1.0.1 --
+\end{verbatim}
+
+\begin{verbatim}
+## v tibble      3.2.1     v tsibble     1.1.6
+## v dplyr       1.1.4     v tsibbledata 0.4.1
+## v tidyr       1.3.1     v feasts      0.4.1
+## v lubridate   1.9.4     v fable       0.4.1
+## v ggplot2     3.5.1
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'dplyr' was built under R version 4.4.2
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'tidyr' was built under R version 4.4.2
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'lubridate' was built under R version 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'ggplot2' was built under R version 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'tsibble' was built under R version 4.4.2
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'tsibbledata' was built under R version 4.4.2
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'feasts' was built under R version 4.4.2
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'fabletools' was built under R version 4.4.2
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'fable' was built under R version 4.4.2
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts ------------------------------------------------- fpp3_conflicts --
+## x lubridate::date()    masks base::date()
+## x dplyr::filter()      masks stats::filter()
+## x tsibble::intersect() masks base::intersect()
+## x tsibble::interval()  masks lubridate::interval()
+## x dplyr::lag()         masks stats::lag()
+## x tsibble::setdiff()   masks base::setdiff()
+## x tsibble::union()     masks base::union()
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\CommentTok{\# Plot the daily closing prices for Amazon stock}
+\FunctionTok{ggplot}\NormalTok{(gafa\_stock, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Date, }\AttributeTok{y =}\NormalTok{ Close)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Daily Closing Prices of Amazon Stock"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Date"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Closing Price (USD)"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-6D624_files/figure-latex/92-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plot the ACF of the daily closing prices}
+\NormalTok{gafa\_stock }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ACF}\NormalTok{(Close) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{autoplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"ACF of Amazon Stock Closing Prices"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Provided data has an irregular interval, results should be treated
+## with caution. Computing ACF by observation.
+\end{verbatim}
+
+\includegraphics{Assignment-6D624_files/figure-latex/92-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plot the PACF of the daily closing prices}
+\NormalTok{gafa\_stock }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{PACF}\NormalTok{(Close) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{autoplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"PACF of Amazon Stock Closing Prices"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Provided data has an irregular interval, results should be treated
+## with caution. Computing ACF by observation.
+\end{verbatim}
+
+\includegraphics{Assignment-6D624_files/figure-latex/92-3.pdf}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Daily Closing Prices Plot
+\end{enumerate}
+
+This plot shows Amazon's stock prices over time. The clear upward trend
+and volatility indicate non-stationarity, as the mean and variance are
+not constant. The presence of a trend suggests that differencing is
+required to make the data stationary.\\
+2. ACF Plot
+
+The slow decay and high autocorrelation values signify that the series
+is dominated by trends or patterns rather than random fluctuations.
+Differencing the series to remove the trend would stabilize its mean and
+variance, making it suitable for time series modeling and forecasting.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  The PACF plot strongly supports the conclusion that Amazon's stock
+  prices are non-stationary and need differencing. First-order
+  differencing will remove the trend, making the series stationary and
+  suitable for time series modeling.
+\end{enumerate}
+
+\section{9.3 )}\label{section-2}
+
+For the following series, find an appropriate Box-Cox transformation and
+order of differencing in order to obtain stationary data.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Turkish GDP from global\_economy.
+\item
+  Accommodation takings in the state of Tasmania from
+  aus\_accommodation.
+\item
+  Monthly sales from souvenirs.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load necessary libraries}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tidyverse' was built under R version 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'readr' was built under R version 4.4.2
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'purrr' was built under R version 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'stringr' was built under R version 4.4.2
+\end{verbatim}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v forcats 1.0.0     v readr   2.1.5
+## v purrr   1.0.4     v stringr 1.5.1
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter()     masks stats::filter()
+## x tsibble::interval() masks lubridate::interval()
+## x dplyr::lag()        masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tsibble)}
+\FunctionTok{library}\NormalTok{(fpp3)}
+\FunctionTok{library}\NormalTok{(forecast)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'forecast' was built under R version 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## Registered S3 method overwritten by 'quantmod':
+##   method            from
+##   as.zoo.data.frame zoo
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Reusable function for processing time series}
+\NormalTok{process\_series }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(data, value\_col, time\_col, lag) \{}
+  \CommentTok{\# Calculate optimal Box{-}Cox lambda}
+\NormalTok{  lambda }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{features}\NormalTok{(\{\{ value\_col \}\}, }\AttributeTok{features =}\NormalTok{ guerrero) }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{pull}\NormalTok{(lambda\_guerrero)}
+  
+  \CommentTok{\# Determine number of seasonal differences}
+\NormalTok{  nsdiffs }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{features}\NormalTok{(}\FunctionTok{box\_cox}\NormalTok{(\{\{ value\_col \}\}, lambda), }\AttributeTok{features =}\NormalTok{ unitroot\_nsdiffs) }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{pull}\NormalTok{(nsdiffs)}
+  
+  \CommentTok{\# If nsdiffs is less than or equal to 0, set it to 1 to avoid errors}
+\NormalTok{  nsdiffs }\OtherTok{\textless{}{-}} \FunctionTok{max}\NormalTok{(nsdiffs, }\DecValTok{1}\NormalTok{)}
+  
+  \CommentTok{\# Determine number of first differences}
+\NormalTok{  ndiffs }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{features}\NormalTok{(}\FunctionTok{difference}\NormalTok{(}\FunctionTok{box\_cox}\NormalTok{(\{\{ value\_col \}\}, lambda), }\AttributeTok{lag =}\NormalTok{ lag, }\AttributeTok{differences =}\NormalTok{ nsdiffs), }
+             \AttributeTok{features =}\NormalTok{ unitroot\_ndiffs) }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{pull}\NormalTok{(ndiffs)}
+  
+  \CommentTok{\# If ndiffs is less than or equal to 0, set it to 1 to avoid errors}
+\NormalTok{  ndiffs }\OtherTok{\textless{}{-}} \FunctionTok{max}\NormalTok{(ndiffs, }\DecValTok{1}\NormalTok{)}
+  
+  \CommentTok{\# Print results}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"The optimal Box{-}Cox lambda value is"}\NormalTok{, lambda,}
+      \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{The optimal number of seasonal differences is"}\NormalTok{, nsdiffs,}
+      \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{The optimal number of first differences is"}\NormalTok{, ndiffs, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+  
+  \CommentTok{\# Generate transformed data}
+  \FunctionTok{return}\NormalTok{(data }\SpecialCharTok{|\textgreater{}} 
+           \FunctionTok{transmute}\NormalTok{(}
+\NormalTok{             \{\{ time\_col \}\},}
+             \AttributeTok{Original =}\NormalTok{ \{\{ value\_col \}\},}
+             \AttributeTok{BoxCox\_Transformed =} \FunctionTok{box\_cox}\NormalTok{(\{\{ value\_col \}\}, lambda),}
+             \AttributeTok{Final\_Transformed =} \FunctionTok{difference}\NormalTok{(}\FunctionTok{box\_cox}\NormalTok{(\{\{ value\_col \}\}, lambda), }\AttributeTok{lag =}\NormalTok{ lag, }\AttributeTok{differences =}\NormalTok{ nsdiffs }\SpecialCharTok{+}\NormalTok{ ndiffs)}
+\NormalTok{           ))}
+\NormalTok{\}}
+
+\CommentTok{\# Turkish GDP}
+\NormalTok{turkey\_gdp }\OtherTok{\textless{}{-}}\NormalTok{ global\_economy }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{filter}\NormalTok{(Country }\SpecialCharTok{==} \StringTok{"Turkey"}\NormalTok{)}
+
+\NormalTok{turkey\_gdp\_transformed }\OtherTok{\textless{}{-}} \FunctionTok{process\_series}\NormalTok{(turkey\_gdp, GDP, Year, }\AttributeTok{lag =} \DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The optimal Box-Cox lambda value is 0.1572187 
+## The optimal number of seasonal differences is 1 
+## The optimal number of first differences is 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{turkey\_gdp\_transformed }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pivot\_longer}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Year, }\AttributeTok{names\_to =} \StringTok{"Transformation"}\NormalTok{, }\AttributeTok{values\_to =} \StringTok{"GDP"}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Year, }\AttributeTok{y =}\NormalTok{ GDP)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{facet\_grid}\NormalTok{(}\FunctionTok{vars}\NormalTok{(Transformation), }\AttributeTok{scales =} \StringTok{"free\_y"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Turkish GDP Transformations"}\NormalTok{, }\AttributeTok{y =} \StringTok{"GDP"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-6D624_files/figure-latex/93-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Tasmanian Accommodation}
+\NormalTok{tas\_accommodation }\OtherTok{\textless{}{-}}\NormalTok{ aus\_accommodation }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{filter}\NormalTok{(State }\SpecialCharTok{==} \StringTok{"Tasmania"}\NormalTok{)}
+
+\NormalTok{tas\_accommodation\_transformed }\OtherTok{\textless{}{-}} \FunctionTok{process\_series}\NormalTok{(tas\_accommodation, Takings, Date, }\AttributeTok{lag =} \DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The optimal Box-Cox lambda value is 0.001819643 
+## The optimal number of seasonal differences is 1 
+## The optimal number of first differences is 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tas\_accommodation\_transformed }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pivot\_longer}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Date, }\AttributeTok{names\_to =} \StringTok{"Transformation"}\NormalTok{, }\AttributeTok{values\_to =} \StringTok{"Takings"}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Date, }\AttributeTok{y =}\NormalTok{ Takings)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{facet\_grid}\NormalTok{(}\FunctionTok{vars}\NormalTok{(Transformation), }\AttributeTok{scales =} \StringTok{"free\_y"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Tasmanian Accommodation Transformations"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Takings"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-6D624_files/figure-latex/93-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Souvenir Sales}
+\NormalTok{souvenir\_sales\_transformed }\OtherTok{\textless{}{-}} \FunctionTok{process\_series}\NormalTok{(souvenirs, Sales, Month, }\AttributeTok{lag =} \DecValTok{12}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The optimal Box-Cox lambda value is 0.002118221 
+## The optimal number of seasonal differences is 1 
+## The optimal number of first differences is 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{souvenir\_sales\_transformed }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pivot\_longer}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Month, }\AttributeTok{names\_to =} \StringTok{"Transformation"}\NormalTok{, }\AttributeTok{values\_to =} \StringTok{"Sales"}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Month, }\AttributeTok{y =}\NormalTok{ Sales)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{facet\_grid}\NormalTok{(}\FunctionTok{vars}\NormalTok{(Transformation), }\AttributeTok{scales =} \StringTok{"free\_y"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Souvenir Sales Transformations"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Sales"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-6D624_files/figure-latex/93-3.pdf}
+
+Each dataset -- Turkish GDP, Tasmanian Accommodation Takings, and
+Souvenir Sales -- initially presents challenges with trends and/or
+seasonality, rendering them unsuitable for direct modeling. The
+application of the Box-Cox transformation addresses variance instability
+across all series, but the persistence of trends and seasonal patterns
+necessitates further intervention.
+
+Differencing techniques are then employed to eliminate these remaining
+non-stationary components. For the Turkish GDP, a straightforward
+differencing removes the upward trend, creating a stable series. In the
+case of Tasmanian Accommodation Takings and Souvenir Sales, seasonal
+differencing is applied to account for the recurring quarterly and
+annual fluctuations, respectively. The combination of Box-Cox
+transformation and differencing successfully stabilizes both mean and
+variance, producing datasets that exhibit stationarity.
+
+The transformation from non-stationary to stationary data is essential
+for reliable time series analysis. By removing trends and seasonal
+patterns, the underlying structure of the data becomes clearer, allowing
+for more accurate modeling and forecasting. This process ensures that
+any insights derived from the data are not confounded by the
+non-stationary characteristics, leading to more robust and dependable
+conclusions.
+
+\section{9.5 )}\label{section-3}
+
+For your retail data (from Exercise 7 in Section 2.10), find the
+appropriate order of differencing (after transformation if necessary) to
+obtain stationary data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load necessary libraries}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(tsibble)}
+\FunctionTok{library}\NormalTok{(fpp3)}
+\FunctionTok{library}\NormalTok{(forecast)}
+
+\CommentTok{\# Set seed for reproducibility}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1234567}\NormalTok{)}
+
+\CommentTok{\# Select one random series from the aus\_retail dataset}
+\NormalTok{myseries }\OtherTok{\textless{}{-}}\NormalTok{ aus\_retail }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{filter}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Series ID}\StringTok{\textasciigrave{}} \SpecialCharTok{==} \FunctionTok{sample}\NormalTok{(aus\_retail}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Series ID}\StringTok{\textasciigrave{}}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+
+\CommentTok{\# Display the time series for visualization}
+\NormalTok{myseries }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{gg\_tsdisplay}\NormalTok{(Turnover)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-6D624_files/figure-latex/95-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculate the optimal Box{-}Cox transformation lambda value}
+\NormalTok{lambda }\OtherTok{\textless{}{-}}\NormalTok{ myseries }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{features}\NormalTok{(Turnover, }\AttributeTok{features =}\NormalTok{ guerrero) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pull}\NormalTok{(lambda\_guerrero)}
+
+\CommentTok{\# Determine the number of seasonal differences}
+\NormalTok{nsdiffs }\OtherTok{\textless{}{-}}\NormalTok{ myseries }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{features}\NormalTok{(}\FunctionTok{box\_cox}\NormalTok{(Turnover, lambda), }\AttributeTok{features =}\NormalTok{ unitroot\_nsdiffs) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pull}\NormalTok{(nsdiffs)}
+
+\CommentTok{\# Ensure nsdiffs is a positive integer}
+\NormalTok{nsdiffs }\OtherTok{\textless{}{-}} \FunctionTok{max}\NormalTok{(nsdiffs, }\DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# Determine the number of first differences}
+\NormalTok{ndiffs }\OtherTok{\textless{}{-}}\NormalTok{ myseries }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{features}\NormalTok{(}\FunctionTok{difference}\NormalTok{(}\FunctionTok{box\_cox}\NormalTok{(Turnover, lambda), }\AttributeTok{lag =} \DecValTok{12}\NormalTok{, }\AttributeTok{differences =}\NormalTok{ nsdiffs), }
+           \AttributeTok{features =}\NormalTok{ unitroot\_ndiffs) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pull}\NormalTok{(ndiffs)}
+
+\CommentTok{\# Ensure ndiffs is a positive integer}
+\NormalTok{ndiffs }\OtherTok{\textless{}{-}} \FunctionTok{max}\NormalTok{(ndiffs, }\DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# Print the results}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"The optimal Box{-}Cox lambda value for this series is"}\NormalTok{, lambda,}
+    \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{The optimal number of seasonal differences for this series is"}\NormalTok{, nsdiffs,}
+    \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{The optimal number of first differences for this series is"}\NormalTok{, ndiffs, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The optimal Box-Cox lambda value for this series is 0.1761103 
+## The optimal number of seasonal differences for this series is 1 
+## The optimal number of first differences for this series is 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plot the fully transformed and differenced series}
+\NormalTok{myseries }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{autoplot}\NormalTok{(}
+    \FunctionTok{difference}\NormalTok{(}
+      \FunctionTok{difference}\NormalTok{(}\FunctionTok{box\_cox}\NormalTok{(Turnover, lambda), }\AttributeTok{lag =} \DecValTok{12}\NormalTok{, }\AttributeTok{differences =}\NormalTok{ nsdiffs)}
+\NormalTok{    )}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Stationary Retail Turnover Series"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Transformed Turnover"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 13 rows containing missing values or values outside the scale range
+## (`geom_line()`).
+\end{verbatim}
+
+\includegraphics{Assignment-6D624_files/figure-latex/95-2.pdf}
+
+Time Series of Turnover: The initial turnover data exhibits a distinct
+upward trend coupled with pronounced seasonal fluctuations, rendering it
+non-stationary. This is corroborated by the Autocorrelation Function
+(ACF) plot, which displays high autocorrelation at shorter lags,
+gradually diminishing, signaling the presence of both trend and
+seasonality. Additionally, the seasonal plot reveals consistent monthly
+patterns, with observable peaks and troughs that align with typical
+retail cycles, further emphasizing the series' non-stationary nature.
+
+Stationary Retail Turnover Series: Following a Box-Cox transformation
+and the application of seasonal and first differencing, the retail
+turnover series achieves stationarity, manifesting as fluctuations
+around a stable mean close to zero. The transformative process
+successfully eliminates both trends and seasonal patterns, leaving
+behind only short-term, random variations. Consequently, this processed
+series is now appropriately conditioned for advanced statistical
+modeling, including accurate forecasting techniques, as it fulfills the
+criteria for stationarity required by such models.
+
+\section{9.6 )}\label{section-4}
+
+Simulate and plot some data from simple ARIMA models.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Use the following R code to generate data from an AR(1) model with\\
+  ϕ1 = 0.6 and σ2 = 1. The process starts with y1 =0.
+\end{enumerate}
+
+y \textless- numeric(100) e \textless- rnorm(100) for(i in 2:100)
+y{[}i{]} \textless- 0.6*y{[}i-1{]} + e{[}i{]} sim \textless- tsibble(idx
+= seq\_len(100), y = y, index = idx)
+
+b)Produce a time plot for the series. How does the plot change as you
+change ϕ1?
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{2}
+\item
+  Write your own code to generate data from an MA(1) model with θ1= 0.6
+  and σ2 =1.
+\item
+  Produce a time plot for the series. How does the plot change as you
+  change θ1?
+\item
+  Generate data from an ARMA(1,1) model with ϕ1 =0.6, θ1=0.6 and σ2=1.
+\item
+  Generate data from an AR(2) model with ϕ1= −0.8,ϕ2 =0.3 and σ2=1.(Note
+  that these parameters will give a non-stationary series.)
+\end{enumerate}
+
+g)Graph the latter two series and compare them.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# AR(1) Model}
+\FunctionTok{library}\NormalTok{(tsibble)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\CommentTok{\# Simulate AR(1) model}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\NormalTok{e }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{2}\SpecialCharTok{:}\DecValTok{100}\NormalTok{) \{}
+\NormalTok{  y[i] }\OtherTok{\textless{}{-}} \FloatTok{0.6} \SpecialCharTok{*}\NormalTok{ y[i }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{] }\SpecialCharTok{+}\NormalTok{ e[i] }\CommentTok{\# AR(1) formula}
+\NormalTok{\}}
+\NormalTok{sim\_ar1 }\OtherTok{\textless{}{-}} \FunctionTok{tsibble}\NormalTok{(}\AttributeTok{idx =} \FunctionTok{seq\_len}\NormalTok{(}\DecValTok{100}\NormalTok{), }\AttributeTok{y =}\NormalTok{ y, }\AttributeTok{index =}\NormalTok{ idx)}
+
+\CommentTok{\# Time plot for AR(1)}
+\FunctionTok{ggplot}\NormalTok{(sim\_ar1, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ idx, }\AttributeTok{y =}\NormalTok{ y)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{color =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"AR(1) Model Simulation"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Time"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Value"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-6D624_files/figure-latex/96-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# MA(1) Model}
+\CommentTok{\# Simulate MA(1) model}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{e }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{101}\NormalTok{) }\CommentTok{\# Generate errors}
+\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{2}\SpecialCharTok{:}\DecValTok{100}\NormalTok{) \{}
+\NormalTok{  y[i] }\OtherTok{\textless{}{-}}\NormalTok{ e[i] }\SpecialCharTok{+} \FloatTok{0.6} \SpecialCharTok{*}\NormalTok{ e[i }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{] }\CommentTok{\# MA(1) formula}
+\NormalTok{\}}
+\NormalTok{sim\_ma1 }\OtherTok{\textless{}{-}} \FunctionTok{tsibble}\NormalTok{(}\AttributeTok{idx =} \FunctionTok{seq\_len}\NormalTok{(}\DecValTok{100}\NormalTok{), }\AttributeTok{y =}\NormalTok{ y, }\AttributeTok{index =}\NormalTok{ idx)}
+
+\CommentTok{\# Time plot for MA(1)}
+\FunctionTok{ggplot}\NormalTok{(sim\_ma1, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ idx, }\AttributeTok{y =}\NormalTok{ y)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{color =} \StringTok{"red"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"MA(1) Model Simulation"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Time"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Value"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-6D624_files/figure-latex/96-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#ARMA(1,1) Model}
+\CommentTok{\# Simulate ARMA(1,1) model}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\NormalTok{e }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{2}\SpecialCharTok{:}\DecValTok{100}\NormalTok{) \{}
+\NormalTok{  y[i] }\OtherTok{\textless{}{-}} \FloatTok{0.6} \SpecialCharTok{*}\NormalTok{ y[i }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{] }\SpecialCharTok{+}\NormalTok{ e[i] }\SpecialCharTok{+} \FloatTok{0.6} \SpecialCharTok{*}\NormalTok{ e[i }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{] }\CommentTok{\# ARMA(1,1) formula}
+\NormalTok{\}}
+\NormalTok{sim\_arma11 }\OtherTok{\textless{}{-}} \FunctionTok{tsibble}\NormalTok{(}\AttributeTok{idx =} \FunctionTok{seq\_len}\NormalTok{(}\DecValTok{100}\NormalTok{), }\AttributeTok{y =}\NormalTok{ y, }\AttributeTok{index =}\NormalTok{ idx)}
+
+\CommentTok{\# Time plot for ARMA(1,1)}
+\FunctionTok{ggplot}\NormalTok{(sim\_arma11, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ idx, }\AttributeTok{y =}\NormalTok{ y)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{color =} \StringTok{"green"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"ARMA(1,1) Model Simulation"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Time"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Value"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-6D624_files/figure-latex/96-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#AR(2) Model}
+
+\CommentTok{\# Simulate AR(2) model}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\NormalTok{e }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{3}\SpecialCharTok{:}\DecValTok{100}\NormalTok{) \{}
+\NormalTok{  y[i] }\OtherTok{\textless{}{-}} \SpecialCharTok{{-}}\FloatTok{0.8} \SpecialCharTok{*}\NormalTok{ y[i }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{] }\SpecialCharTok{+} \FloatTok{0.3} \SpecialCharTok{*}\NormalTok{ y[i }\SpecialCharTok{{-}} \DecValTok{2}\NormalTok{] }\SpecialCharTok{+}\NormalTok{ e[i] }\CommentTok{\# AR(2) formula}
+\NormalTok{\}}
+\NormalTok{sim\_ar2 }\OtherTok{\textless{}{-}} \FunctionTok{tsibble}\NormalTok{(}\AttributeTok{idx =} \FunctionTok{seq\_len}\NormalTok{(}\DecValTok{100}\NormalTok{), }\AttributeTok{y =}\NormalTok{ y, }\AttributeTok{index =}\NormalTok{ idx)}
+
+\CommentTok{\# Time plot for AR(2)}
+\FunctionTok{ggplot}\NormalTok{(sim\_ar2, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ idx, }\AttributeTok{y =}\NormalTok{ y)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{color =} \StringTok{"purple"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"AR(2) Model Simulation"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Time"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Value"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-6D624_files/figure-latex/96-4.pdf}
+
+\section{9.7 )}\label{section-5}
+
+Consider aus\_airpassengers, the total number of passengers (in
+millions) from Australian air carriers for the period 1970-2011.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Use ARIMA() to find an appropriate ARIMA model. What model was
+  selected. Check that the residuals look like white noise. Plot
+  forecasts for the next 10 periods.
+\item
+  Write the model in terms of the backshift operator.
+\item
+  Plot forecasts from an ARIMA(0,1,0) model with drift and compare these
+  to part a.
+\item
+  Plot forecasts from an ARIMA(2,1,2) model with drift and compare these
+  to parts a and c.~Remove the constant and see what happens.
+\item
+  Plot forecasts from an ARIMA(0,2,1) model with a constant. What
+  happens?
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load necessary libraries}
+\FunctionTok{library}\NormalTok{(fpp3)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\CommentTok{\# Load the aus\_airpassengers dataset}
+\NormalTok{data }\OtherTok{\textless{}{-}}\NormalTok{ aus\_airpassengers}
+
+\CommentTok{\# Part (a) Find an appropriate ARIMA model}
+\NormalTok{model\_a }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{|\textgreater{}} \FunctionTok{model}\NormalTok{(}\FunctionTok{ARIMA}\NormalTok{(Passengers))}
+\FunctionTok{report}\NormalTok{(model\_a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Series: Passengers 
+## Model: ARIMA(0,2,1) 
+## 
+## Coefficients:
+##           ma1
+##       -0.8963
+## s.e.   0.0594
+## 
+## sigma^2 estimated as 4.308:  log likelihood=-97.02
+## AIC=198.04   AICc=198.32   BIC=201.65
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Check residuals}
+\NormalTok{residuals\_a }\OtherTok{\textless{}{-}} \FunctionTok{augment}\NormalTok{(model\_a)}
+\FunctionTok{autoplot}\NormalTok{(residuals\_a, .resid) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Residuals of Fitted ARIMA Model"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Residuals"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-6D624_files/figure-latex/97-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggAcf}\NormalTok{(residuals\_a}\SpecialCharTok{$}\NormalTok{.resid) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"ACF of Residuals"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-6D624_files/figure-latex/97-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Forecast for the next 10 periods}
+\NormalTok{forecast\_a }\OtherTok{\textless{}{-}}\NormalTok{ model\_a }\SpecialCharTok{|\textgreater{}} \FunctionTok{forecast}\NormalTok{(}\AttributeTok{h =} \DecValTok{10}\NormalTok{)}
+
+\CommentTok{\# Plot and save forecast (Part a)}
+\NormalTok{p\_a }\OtherTok{\textless{}{-}} \FunctionTok{autoplot}\NormalTok{(forecast\_a, data) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"ARIMA Model Forecast (Part A)"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Passengers"}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(p\_a) }\CommentTok{\# Display plot in console}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-6D624_files/figure-latex/97-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"forecast\_a.png"}\NormalTok{, }\AttributeTok{plot =}\NormalTok{ p\_a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Saving 6.5 x 4.5 in image
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Part (b) Write the model in backshift operator terms}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"The ARIMA model (selected in Part A) in terms of the backshift operator is printed by \textquotesingle{}report()\textquotesingle{} output.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The ARIMA model (selected in Part A) in terms of the backshift operator is printed by 'report()' output.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Part (c) ARIMA(0,1,0) with drift}
+\NormalTok{model\_c }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{|\textgreater{}} \FunctionTok{model}\NormalTok{(}\FunctionTok{ARIMA}\NormalTok{(Passengers }\SpecialCharTok{\textasciitilde{}} \FunctionTok{drift}\NormalTok{()))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: 1 error encountered for ARIMA(Passengers ~ drift())
+## [1] could not find function "drift"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{forecast\_c }\OtherTok{\textless{}{-}}\NormalTok{ model\_c }\SpecialCharTok{|\textgreater{}} \FunctionTok{forecast}\NormalTok{(}\AttributeTok{h =} \DecValTok{10}\NormalTok{)}
+
+\CommentTok{\# Plot and save forecast (Part c)}
+\NormalTok{p\_c }\OtherTok{\textless{}{-}} \FunctionTok{autoplot}\NormalTok{(forecast\_c, data) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"ARIMA(0,1,0) Model with Drift"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Passengers"}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(p\_c) }\CommentTok{\# Display plot in console}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+## -Inf
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+## -Inf
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 10 rows containing missing values or values outside the scale range
+## (`geom_line()`).
+\end{verbatim}
+
+\includegraphics{Assignment-6D624_files/figure-latex/97-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"forecast\_c.png"}\NormalTok{, }\AttributeTok{plot =}\NormalTok{ p\_c)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Saving 6.5 x 4.5 in image
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+## -Inf
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+## -Inf
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 10 rows containing missing values or values outside the scale range
+## (`geom_line()`).
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Part (d) ARIMA(2,1,2) with drift}
+\NormalTok{model\_d }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{|\textgreater{}} \FunctionTok{model}\NormalTok{(}\FunctionTok{ARIMA}\NormalTok{(Passengers }\SpecialCharTok{\textasciitilde{}} \FunctionTok{pdq}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{drift}\NormalTok{()))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: 1 error encountered for ARIMA(Passengers ~ pdq(2, 1, 2) + drift())
+## [1] could not find function "drift"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{forecast\_d }\OtherTok{\textless{}{-}}\NormalTok{ model\_d }\SpecialCharTok{|\textgreater{}} \FunctionTok{forecast}\NormalTok{(}\AttributeTok{h =} \DecValTok{10}\NormalTok{)}
+
+\CommentTok{\# Plot and save forecast (Part d with constant)}
+\NormalTok{p\_d }\OtherTok{\textless{}{-}} \FunctionTok{autoplot}\NormalTok{(forecast\_d, data) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"ARIMA(2,1,2) Model with Drift"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Passengers"}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(p\_d) }\CommentTok{\# Display plot in console}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+## -Inf
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+## -Inf
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 10 rows containing missing values or values outside the scale range
+## (`geom_line()`).
+\end{verbatim}
+
+\includegraphics{Assignment-6D624_files/figure-latex/97-5.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"forecast\_d\_with\_constant.png"}\NormalTok{, }\AttributeTok{plot =}\NormalTok{ p\_d)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Saving 6.5 x 4.5 in image
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+## -Inf
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+## -Inf
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 10 rows containing missing values or values outside the scale range
+## (`geom_line()`).
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Remove the constant (drift) and observe behavior}
+\NormalTok{model\_d\_no\_constant }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{|\textgreater{}} \FunctionTok{model}\NormalTok{(}\FunctionTok{ARIMA}\NormalTok{(Passengers }\SpecialCharTok{\textasciitilde{}} \FunctionTok{pdq}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: It looks like you're trying to fully specify your ARIMA model but have not said if a constant should be included.
+## You can include a constant using `ARIMA(y~1)` to the formula or exclude it by adding `ARIMA(y~0)`.
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: 1 error encountered for ARIMA(Passengers ~ pdq(2, 1, 2))
+## [1] Could not find an appropriate ARIMA model.
+## This is likely because automatic selection does not select models with characteristic roots that may be numerically unstable.
+## For more details, refer to https://otexts.com/fpp3/arima-r.html#plotting-the-characteristic-roots
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{forecast\_d\_no\_constant }\OtherTok{\textless{}{-}}\NormalTok{ model\_d\_no\_constant }\SpecialCharTok{|\textgreater{}} \FunctionTok{forecast}\NormalTok{(}\AttributeTok{h =} \DecValTok{10}\NormalTok{)}
+
+\CommentTok{\# Plot and save forecast (Part d without constant)}
+\NormalTok{p\_d\_nc }\OtherTok{\textless{}{-}} \FunctionTok{autoplot}\NormalTok{(forecast\_d\_no\_constant, data) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"ARIMA(2,1,2) Model Without Drift"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Passengers"}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(p\_d\_nc) }\CommentTok{\# Display plot in console}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+## -Inf
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+## -Inf
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 10 rows containing missing values or values outside the scale range
+## (`geom_line()`).
+\end{verbatim}
+
+\includegraphics{Assignment-6D624_files/figure-latex/97-6.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"forecast\_d\_no\_constant.png"}\NormalTok{, }\AttributeTok{plot =}\NormalTok{ p\_d\_nc)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Saving 6.5 x 4.5 in image
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+## -Inf
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+## -Inf
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 10 rows containing missing values or values outside the scale range
+## (`geom_line()`).
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Part (e) ARIMA(0,2,1) with a constant}
+\NormalTok{model\_e }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{|\textgreater{}} \FunctionTok{model}\NormalTok{(}\FunctionTok{ARIMA}\NormalTok{(Passengers }\SpecialCharTok{\textasciitilde{}} \FunctionTok{pdq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{drift}\NormalTok{()))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: 1 error encountered for ARIMA(Passengers ~ pdq(0, 2, 1) + drift())
+## [1] could not find function "drift"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{forecast\_e }\OtherTok{\textless{}{-}}\NormalTok{ model\_e }\SpecialCharTok{|\textgreater{}} \FunctionTok{forecast}\NormalTok{(}\AttributeTok{h =} \DecValTok{10}\NormalTok{)}
+
+\CommentTok{\# Plot and save forecast (Part e)}
+\NormalTok{p\_e }\OtherTok{\textless{}{-}} \FunctionTok{autoplot}\NormalTok{(forecast\_e, data) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"ARIMA(0,2,1) Model with Constant"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Passengers"}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(p\_e) }\CommentTok{\# Display plot in console}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+## -Inf
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+## -Inf
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 10 rows containing missing values or values outside the scale range
+## (`geom_line()`).
+\end{verbatim}
+
+\includegraphics{Assignment-6D624_files/figure-latex/97-7.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"forecast\_e.png"}\NormalTok{, }\AttributeTok{plot =}\NormalTok{ p\_e)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Saving 6.5 x 4.5 in image
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+## -Inf
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+## -Inf
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 10 rows containing missing values or values outside the scale range
+## (`geom_line()`).
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Observe the saved plots to analyze behavior}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"All forecast plots have been saved as PNG files in the working directory.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## All forecast plots have been saved as PNG files in the working directory.
+\end{verbatim}
+
+The ARIMA model provides a strong forecast of Australian air passengers
+based on historical data from 1970 to 2011. The model aligns well with
+the data's upward trend and projects continued growth. The confidence
+intervals indicate increasing uncertainty further into the future, but
+overall, the model suggests robust forecasting.
+
+The ARIMA(0,1,0) model with drift, which forecasts a steady linear
+increase in passenger numbers. While this model captures the general
+growth trend, it lacks the flexibility of the selected ARIMA model, as
+it does not account for more complex dynamics present in the historical
+data.
+
+The ARIMA(2,1,2) model with drift. This model offers a more nuanced
+representation of the passenger data, capturing both growth and some
+additional fluctuations. When the drift is removed, as shown in the
+fourth plot (ARIMA(2,1,2) without drift), the forecasts become stagnant,
+indicating the importance of the drift term for projecting future
+increases in passenger numbers.
+
+The fifth plot illustrates an ARIMA(0,2,1) model with a constant. This
+model produces forecasts with a steeper growth trajectory compared to
+other models, emphasizing how the second-order differencing combined
+with a constant can amplify the growth trend.
+
+\section{9.8 )}\label{section-6}
+
+For the United States GDP series (from global\_economy):
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  if necessary, find a suitable Box-Cox transformation for the data;
+\item
+  fit a suitable ARIMA model to the transformed data using ARIMA();
+\item
+  try some other plausible models by experimenting with the orders
+  chosen;
+\item
+  choose what you think is the best model and check the residual
+  diagnostics;
+\item
+  produce forecasts of your fitted model. Do the forecasts look
+  reasonable?
+\item
+  compare the results with what you would obtain using ETS() (with no
+  transformation).
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load necessary libraries}
+\FunctionTok{library}\NormalTok{(fpp3)}
+
+\CommentTok{\# Filter United States GDP data}
+\NormalTok{us\_gdp }\OtherTok{\textless{}{-}}\NormalTok{ global\_economy }\SpecialCharTok{|\textgreater{}} \FunctionTok{filter}\NormalTok{(Country }\SpecialCharTok{==} \StringTok{"United States"}\NormalTok{)}
+
+\CommentTok{\# Part (a): Box{-}Cox transformation if necessary}
+\NormalTok{lambda }\OtherTok{\textless{}{-}}\NormalTok{ us\_gdp }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{features}\NormalTok{(GDP, }\AttributeTok{features =}\NormalTok{ guerrero) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{pull}\NormalTok{(lambda\_guerrero)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"The optimal Box{-}Cox lambda value is:"}\NormalTok{, lambda, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The optimal Box-Cox lambda value is: 0.2819443
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (lambda }\SpecialCharTok{!=} \DecValTok{1}\NormalTok{) \{}
+\NormalTok{  us\_gdp }\OtherTok{\textless{}{-}}\NormalTok{ us\_gdp }\SpecialCharTok{|\textgreater{}} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{GDP =} \FunctionTok{box\_cox}\NormalTok{(GDP, lambda))}
+\NormalTok{\}}
+
+\CommentTok{\# Part (b): Fit a suitable ARIMA model}
+\NormalTok{model\_arima }\OtherTok{\textless{}{-}}\NormalTok{ us\_gdp }\SpecialCharTok{|\textgreater{}} \FunctionTok{model}\NormalTok{(}\FunctionTok{ARIMA}\NormalTok{(GDP))}
+\FunctionTok{report}\NormalTok{(model\_arima)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Series: GDP 
+## Model: ARIMA(1,1,0) w/ drift 
+## 
+## Coefficients:
+##          ar1  constant
+##       0.4586  118.1822
+## s.e.  0.1198    9.5047
+## 
+## sigma^2 estimated as 5479:  log likelihood=-325.32
+## AIC=656.65   AICc=657.1   BIC=662.78
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Part (c): Experiment with alternative ARIMA models}
+\NormalTok{model\_arima\_alt1 }\OtherTok{\textless{}{-}}\NormalTok{ us\_gdp }\SpecialCharTok{|\textgreater{}} \FunctionTok{model}\NormalTok{(}\FunctionTok{ARIMA}\NormalTok{(GDP }\SpecialCharTok{\textasciitilde{}} \FunctionTok{pdq}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)))}
+\NormalTok{model\_arima\_alt2 }\OtherTok{\textless{}{-}}\NormalTok{ us\_gdp }\SpecialCharTok{|\textgreater{}} \FunctionTok{model}\NormalTok{(}\FunctionTok{ARIMA}\NormalTok{(GDP }\SpecialCharTok{\textasciitilde{}} \FunctionTok{pdq}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{)))}
+\FunctionTok{report}\NormalTok{(model\_arima\_alt1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Series: GDP 
+## Model: ARIMA(1,1,0) w/ drift 
+## 
+## Coefficients:
+##          ar1  constant
+##       0.4586  118.1822
+## s.e.  0.1198    9.5047
+## 
+## sigma^2 estimated as 5479:  log likelihood=-325.32
+## AIC=656.65   AICc=657.1   BIC=662.78
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{report}\NormalTok{(model\_arima\_alt2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Series: GDP 
+## Model: ARIMA(2,1,2) w/ drift 
+## 
+## Coefficients:
+##          ar1      ar2      ma1      ma2  constant
+##       0.9557  -0.1011  -0.5094  -0.1386   31.2214
+## s.e.  0.6096   0.4685   0.6043   0.3050    3.3800
+## 
+## sigma^2 estimated as 5734:  log likelihood=-325.05
+## AIC=662.09   AICc=663.77   BIC=674.35
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Part (d): Manual Residual Diagnostics}
+
+\CommentTok{\# Extract residuals as a tibble and convert to a numeric vector}
+\NormalTok{residuals\_tibble }\OtherTok{\textless{}{-}}\NormalTok{ model\_arima }\SpecialCharTok{|\textgreater{}} \FunctionTok{residuals}\NormalTok{()}
+\NormalTok{residuals\_vector }\OtherTok{\textless{}{-}}\NormalTok{ residuals\_tibble}\SpecialCharTok{$}\NormalTok{.resid}
+
+\CommentTok{\# Plot residuals}
+\NormalTok{p\_residuals }\OtherTok{\textless{}{-}} \FunctionTok{autoplot}\NormalTok{(}\FunctionTok{ts}\NormalTok{(residuals\_vector)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Residuals of the Selected ARIMA Model"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Residuals"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\FunctionTok{print}\NormalTok{(p\_residuals)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-6D624_files/figure-latex/98-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"residuals\_manual\_plot.png"}\NormalTok{, }\AttributeTok{plot =}\NormalTok{ p\_residuals)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Saving 6.5 x 4.5 in image
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plot ACF of residuals}
+\NormalTok{p\_acf }\OtherTok{\textless{}{-}} \FunctionTok{ggAcf}\NormalTok{(}\FunctionTok{ts}\NormalTok{(residuals\_vector)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"ACF of Residuals"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\FunctionTok{print}\NormalTok{(p\_acf)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-6D624_files/figure-latex/98-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"acf\_manual\_residuals\_plot.png"}\NormalTok{, }\AttributeTok{plot =}\NormalTok{ p\_acf)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Saving 6.5 x 4.5 in image
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Perform the Ljung{-}Box test}
+\NormalTok{ljung\_box }\OtherTok{\textless{}{-}} \FunctionTok{Box.test}\NormalTok{(residuals\_vector, }\AttributeTok{lag =} \DecValTok{10}\NormalTok{, }\AttributeTok{type =} \StringTok{"Ljung{-}Box"}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(ljung\_box)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Box-Ljung test
+## 
+## data:  residuals_vector
+## X-squared = 3.8137, df = 10, p-value = 0.9554
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Assess results of the Ljung{-}Box test}
+\ControlFlowTok{if}\NormalTok{ (ljung\_box}\SpecialCharTok{$}\NormalTok{p.value }\SpecialCharTok{\textgreater{}} \FloatTok{0.05}\NormalTok{) \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Residuals resemble white noise (no significant autocorrelation).}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Residuals show significant autocorrelation. Consider revising the model.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Residuals resemble white noise (no significant autocorrelation).
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Part (e): Produce forecasts of the fitted model}
+\NormalTok{forecasts }\OtherTok{\textless{}{-}}\NormalTok{ model\_arima }\SpecialCharTok{|\textgreater{}} \FunctionTok{forecast}\NormalTok{(}\AttributeTok{h =} \DecValTok{10}\NormalTok{)}
+\NormalTok{p\_forecast }\OtherTok{\textless{}{-}} \FunctionTok{autoplot}\NormalTok{(forecasts, us\_gdp) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"ARIMA Model Forecasts"}\NormalTok{, }\AttributeTok{y =} \StringTok{"GDP"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\FunctionTok{print}\NormalTok{(p\_forecast)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-6D624_files/figure-latex/98-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"forecast\_arima.png"}\NormalTok{, }\AttributeTok{plot =}\NormalTok{ p\_forecast)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Saving 6.5 x 4.5 in image
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Part (f): Compare with forecasts obtained using ETS() (with no transformation)}
+\NormalTok{model\_ets }\OtherTok{\textless{}{-}}\NormalTok{ us\_gdp }\SpecialCharTok{|\textgreater{}} \FunctionTok{model}\NormalTok{(}\FunctionTok{ETS}\NormalTok{(GDP))}
+\NormalTok{forecasts\_ets }\OtherTok{\textless{}{-}}\NormalTok{ model\_ets }\SpecialCharTok{|\textgreater{}} \FunctionTok{forecast}\NormalTok{(}\AttributeTok{h =} \DecValTok{10}\NormalTok{)}
+\NormalTok{p\_forecast\_ets }\OtherTok{\textless{}{-}} \FunctionTok{autoplot}\NormalTok{(forecasts\_ets, us\_gdp) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"ETS Model Forecasts"}\NormalTok{, }\AttributeTok{y =} \StringTok{"GDP"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\FunctionTok{print}\NormalTok{(p\_forecast\_ets)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-6D624_files/figure-latex/98-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"forecast\_ets.png"}\NormalTok{, }\AttributeTok{plot =}\NormalTok{ p\_forecast\_ets)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Saving 6.5 x 4.5 in image
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Comparison of ARIMA and ETS forecasts}
+\NormalTok{forecasts\_combined }\OtherTok{\textless{}{-}} \FunctionTok{bind\_rows}\NormalTok{(}
+\NormalTok{  forecasts }\SpecialCharTok{|\textgreater{}} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Model =} \StringTok{"ARIMA"}\NormalTok{),}
+\NormalTok{  forecasts\_ets }\SpecialCharTok{|\textgreater{}} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Model =} \StringTok{"ETS"}\NormalTok{)}
+\NormalTok{)}
+\NormalTok{p\_forecast\_combined }\OtherTok{\textless{}{-}} \FunctionTok{autoplot}\NormalTok{(forecasts\_combined, us\_gdp) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Comparison of ARIMA and ETS Forecasts"}\NormalTok{, }\AttributeTok{y =} \StringTok{"GDP"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{Model, }\AttributeTok{scales =} \StringTok{"free\_y"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\FunctionTok{print}\NormalTok{(p\_forecast\_combined)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-6D624_files/figure-latex/98-5.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"forecast\_combined.png"}\NormalTok{, }\AttributeTok{plot =}\NormalTok{ p\_forecast\_combined)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Saving 6.5 x 4.5 in image
+\end{verbatim}
+
+\section{Interpretation}\label{interpretation}
+
+The Residuals are the differences between the observed and predicted
+values, and this plot helps evaluate whether these errors are randomly
+distributed around zero. In an ideal scenario, residuals should exhibit
+no discernible patterns, as this indicates the model has captured all
+the significant dynamics of the data. If clusters or trends are visible,
+it suggests that the model is missing key components. This plot
+generally aligns with the expectation of randomness, validating the
+ARIMA model's effectiveness in fitting the U.S. GDP data.
+
+ACF of Residuals:
+
+The autocorrelation function (ACF) of residuals, which measures the
+correlation of the residuals at varying time lags where each bar
+represents a lag, and those within the 95\% confidence bounds suggest no
+significant autocorrelation. This indicates that residuals resemble
+white noise. If bars exceed the bounds at certain lags, it signifies
+autocorrelation, meaning the model may require refinements. The plot
+supports the conclusion that the ARIMA model adequately accounts for the
+GDP data's temporal dependencies, as most bars remain within the
+confidence intervals.
+
+ARIMA Model Forecasts: The ARIMA model is extending predictions 10
+periods into the future, also the model projects a steady continuation
+of the historical growth observed in the GDP series, with forecast
+values closely aligning with past trends. Confidence intervals,
+represented by shaded regions, widen as the forecast horizon extends,
+signifying greater uncertainty in long-term predictions. This plot
+highlights the ARIMA model's ability to capture and extrapolate the
+underlying growth trajectory effectively while accounting for forecast
+variability.
+
+ETS Model Forecasts : This plot depicts forecasts produced by the ETS
+model, which is specifically designed for data with exponential trends
+and seasonality. The ETS model identifies the consistent growth pattern
+in the GDP data and extends it into future periods, maintaining an
+upward trajectory. Like the ARIMA model, the forecast includes
+confidence intervals that expand as predictions go further into the
+future. The results align well with historical data, showcasing the ETS
+model's strength in capturing exponential trends and making plausible
+predictions for the U.S. GDP series.
+
+Comparison of ARIMA and ETS Forecasts : The comparison of forecasts from
+the ARIMA and ETS model are both models exhibit similar upward growth
+trends, but subtle differences in their forecast intervals and
+trajectories are evident. For instance, the ARIMA model may produce
+narrower confidence intervals, suggesting higher precision in
+predictions. The ETS model, on the other hand, emphasizes exponential
+characteristics in its forecasts. This comparison highlights the
+strengths of each approach: ARIMA's flexibility in modeling temporal
+dependencies versus ETS's focus on exponential trends. Together, they
+provide valuable insights into future GDP growth, reinforcing the
+reliability of both models for time series forecasting.
+
+Note that the \texttt{echo\ =\ FALSE} parameter was added to the code
+chunk to prevent printing of the R code that generated the plot.
+
+\end{document}
